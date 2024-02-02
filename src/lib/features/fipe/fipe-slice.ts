@@ -1,11 +1,11 @@
-import { IBrands, IModels, IYears } from "@/types/fipe";
+import { IVehicleInfo } from "@/types/fipe";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 type InitialState = {
-  brands: [IBrands] | [];
-  models: [IModels] | [];
-  years: [IYears] | [];
+  brands: [IVehicleInfo] | [];
+  models: [IVehicleInfo] | [];
+  years: [IVehicleInfo] | [];
 };
 
 const initialState = { brands: [], models: [], years: [] } as InitialState;
@@ -14,19 +14,19 @@ const fipeSlice = createSlice({
   name: "fipe",
   initialState,
   reducers: {
-    addBrands: (state, action: PayloadAction<[IBrands]>) => {
+    addBrands: (state, action: PayloadAction<[IVehicleInfo]>) => {
       return {
         ...state,
         brands: action.payload,
       };
     },
-    addModels: (state, action: PayloadAction<[IModels]>) => {
+    addModels: (state, action: PayloadAction<[IVehicleInfo]>) => {
       return {
         ...state,
         models: action.payload,
       };
     },
-    addYears: (state, action: PayloadAction<[IYears]>) => {
+    addYears: (state, action: PayloadAction<[IVehicleInfo]>) => {
       return {
         ...state,
         years: action.payload,
