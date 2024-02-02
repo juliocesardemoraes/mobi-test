@@ -1,13 +1,14 @@
-import { IBrands } from "@/types/fipe";
+import { IBrands, IModels, IYears } from "@/types/fipe";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 type InitialState = {
   brands: [IBrands] | [];
-  models: any;
+  models: [IModels] | [];
+  years: [IYears] | [];
 };
 
-const initialState = { brands: [], models: [] } as InitialState;
+const initialState = { brands: [], models: [], years: [] } as InitialState;
 
 const fipeSlice = createSlice({
   name: "fipe",
@@ -19,14 +20,20 @@ const fipeSlice = createSlice({
         brands: action.payload,
       };
     },
-    addModels: (state, action: PayloadAction<[any]>) => {
+    addModels: (state, action: PayloadAction<[IModels]>) => {
       return {
         ...state,
         models: action.payload,
       };
     },
+    addYears: (state, action: PayloadAction<[IYears]>) => {
+      return {
+        ...state,
+        years: action.payload,
+      };
+    },
   },
 });
 
-export const { addBrands, addModels } = fipeSlice.actions;
+export const { addBrands, addModels, addYears } = fipeSlice.actions;
 export default fipeSlice.reducer;
