@@ -1,5 +1,4 @@
-import { useAppSelector } from "@/lib/store";
-import { IBrands, RequestTypes, RequestsMapper } from "@/types/fipe";
+import { IVehicleInfo, RequestsMapper } from "@/types/fipe";
 import {
   FormControl,
   InputLabel,
@@ -7,26 +6,25 @@ import {
   Select,
   Skeleton,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { Dispatch } from "react";
 
-export default function SelectComponent({
+export default function SelectUI({
   dataAcessor,
+  content,
   setSelected,
   selected,
 }: {
-  dataAcessor: RequestTypes;
-  setSelected: any;
+  dataAcessor: string;
+  content: IVehicleInfo[] | [];
+  setSelected: Dispatch<string>;
   selected: string;
 }) {
-  const content = useAppSelector((state) => state.fipeReducer[dataAcessor]);
-
   return (
     <FormControl className="w-10/12 mt-4 ">
       {content?.length > 0 ? (
         <>
           <InputLabel id={`${dataAcessor}-label`}>
-            {RequestsMapper?.[dataAcessor]}
+            {RequestsMapper?.[dataAcessor] ?? dataAcessor}
           </InputLabel>
           <Select
             labelId={`${dataAcessor}-label`}
@@ -37,7 +35,7 @@ export default function SelectComponent({
               setSelected(event?.target?.value);
             }}
           >
-            {content.map((contentItem: any) => {
+            {content.map((contentItem: IVehicleInfo) => {
               return (
                 <MenuItem key={contentItem.code} value={contentItem.code}>
                   {contentItem.name}
