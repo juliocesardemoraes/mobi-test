@@ -1,14 +1,20 @@
-import { IVehicleInfo } from "@/types/fipe";
+import { IFipeInfo, IVehicleInfo } from "@/types/fipe";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 type InitialState = {
-  brands: [IVehicleInfo] | [];
-  models: [IVehicleInfo] | [];
-  years: [IVehicleInfo] | [];
+  brands: IVehicleInfo[] | [];
+  models: IVehicleInfo[] | [];
+  years: IVehicleInfo[] | [];
+  fipeInfo: IFipeInfo | [];
 };
 
-const initialState = { brands: [], models: [], years: [] } as InitialState;
+const initialState = {
+  brands: [],
+  models: [],
+  years: [],
+  fipeInfo: {},
+} as InitialState;
 
 const fipeSlice = createSlice({
   name: "fipe",
@@ -32,8 +38,15 @@ const fipeSlice = createSlice({
         years: action.payload,
       };
     },
+    addFipeInfo: (state, action: PayloadAction<IFipeInfo>) => {
+      return {
+        ...state,
+        fipeInfo: action.payload,
+      };
+    },
   },
 });
 
-export const { addBrands, addModels, addYears } = fipeSlice.actions;
+export const { addBrands, addModels, addYears, addFipeInfo } =
+  fipeSlice.actions;
 export default fipeSlice.reducer;

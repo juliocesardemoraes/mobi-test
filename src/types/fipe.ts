@@ -11,3 +11,15 @@ export const RequestsMapper: any = {
   models: "Modelos",
   years: "Anos",
 };
+
+export interface IFipeInfo {
+  price: string;
+  brand: string;
+  model: string;
+  modelYear: number;
+  fuel: string;
+  codeFipe: string;
+  referenceMonth: string;
+  vehicleType: number;
+  fuelAcronym: string;
+}
