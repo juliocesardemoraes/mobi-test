@@ -1,8 +1,13 @@
 import axios from "axios";
 import { apiUrl } from "./config";
-import { VehicleTypes, IVehicleInfo } from "@/types/fipe";
+import { VehicleTypes } from "@/types/fipe";
 import { store } from "@/lib/store";
-import { addBrands, addModels, addYears } from "@/lib/features/fipe/fipe-slice";
+import {
+  addBrands,
+  addFipeInfo,
+  addModels,
+  addYears,
+} from "@/lib/features/fipe/fipe-slice";
 
 /**
  * Returns vehicle brands
@@ -52,6 +57,30 @@ export async function getYearsByModel(
     .get(`${apiUrl}/${vehicleType}/brands/${brandId}/models/${modelId}/years`)
     .then((res) => {
       store.dispatch(addYears(res.data));
+    })
+    .catch((error) => {});
+}
+
+/**
+ * Returns the Fipe information for the vehicle (price estimation)
+ * @param {string} vehicleType the vehicle type
+ * @param {string} brandId the vehicle brand
+ * @param {string} modelId the model code identifier
+ * @param {string} yearId the year code identifier
+ * @returns {IVehicleInfo[]} array of years for the respective car brand and modelId
+ */
+export async function getFipeEvaluation(
+  vehicleType: string,
+  brandId: string,
+  modelId: string,
+  yearId: string
+) {
+  axios
+    .get(
+      `${apiUrl}/${vehicleType}/brands/${brandId}/models/${modelId}/years/${yearId}`
+    )
+    .then((res) => {
+      store.dispatch(addFipeInfo(res.data));
     })
     .catch((error) => {});
 }
