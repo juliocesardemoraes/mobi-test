@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/lib/store";
-import { RequestTypes } from "@/types/fipe";
+import { RequestTypes, RequestsMapper } from "@/types/fipe";
 import React, { Dispatch } from "react";
-import SelectUI from "../UI/Select";
+import SelectUI from "../../UI/Select/Select";
 
 export default function SelectData({
   dataAcessor,
@@ -16,7 +16,7 @@ export default function SelectData({
 
   return (
     <SelectUI
-      dataAcessor={dataAcessor}
+      labelName={RequestsMapper?.[dataAcessor]}
       content={content}
       setSelected={setSelected}
       selected={selected}

@@ -9,12 +9,12 @@ import {
 import React, { Dispatch } from "react";
 
 export default function SelectUI({
-  dataAcessor,
+  labelName,
   content,
   setSelected,
   selected,
 }: {
-  dataAcessor: string;
+  labelName: string;
   content: IVehicleInfo[] | [];
   setSelected: Dispatch<string>;
   selected: string;
@@ -23,14 +23,12 @@ export default function SelectUI({
     <FormControl className="w-10/12 mt-4 ">
       {content?.length > 0 ? (
         <>
-          <InputLabel id={`${dataAcessor}-label`}>
-            {RequestsMapper?.[dataAcessor] ?? dataAcessor}
-          </InputLabel>
+          <InputLabel id={`${labelName}-label`}>{labelName}</InputLabel>
           <Select
-            labelId={`${dataAcessor}-label`}
-            id={`${dataAcessor}-select`}
+            labelId={`${labelName}-label`}
+            id={`${labelName}-select`}
             value={selected}
-            label={dataAcessor}
+            label={labelName}
             onChange={(event: any) => {
               setSelected(event?.target?.value);
             }}
