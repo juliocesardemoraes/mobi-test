@@ -1,12 +1,17 @@
+export type RequestTypes = "brands" | "models" | "years";
+export type VehicleTypes = "cars" | "motorcycles" | "trucks";
+
 export interface IVehicleInfo {
   name: string;
   code: string;
 }
 
-export type VehicleTypes = "cars" | "motorcycles" | "trucks";
-export type RequestTypes = "brands" | "models" | "years";
+export interface IVehiclesMapper {
+  name: VehicleTypes;
+  code: string;
+}
 
-export const RequestsMapper: any = {
+export const RequestsMapper = {
   brands: "Marcas",
   models: "Modelos",
   years: "Anos",
