@@ -3,7 +3,7 @@ import { IFipeInfo, VehicleTypes } from "@/types/fipe";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import styles from "./result.module.css";
-import ResultLoading from "./Resultloading";
+import ResultLoading from "../../molecules/ResultLoading/Resultloading";
 
 export default function ResultPage() {
   const searchParams = useSearchParams();

@@ -8,10 +8,10 @@ import {
   getVehicleModels,
   getYearsByModel,
 } from "@/actions/cars";
-import SelectData from "@/components/Data/Select/Select";
+import SelectData from "@/components/molecules/SelectData/SelectData";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import ButtonUI from "@/components/UI/Button/Button";
+import ButtonUI from "@/components/molecules/Button/Button";
 import { VehicleTypes } from "@/types/fipe";
 
 export default function SearchPage() {
@@ -62,6 +62,7 @@ export default function SearchPage() {
     };
 
     getModelsAsync();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedBrand]);
 
   useEffect(() => {

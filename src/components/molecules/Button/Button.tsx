@@ -3,12 +3,12 @@ import styles from "./button.module.css";
 import { Button } from "@mui/material";
 
 export default function ButtonUI({
-  isDisabled,
+  isDisabled = false,
   text,
   type,
   onClick = () => {},
 }: {
-  isDisabled: boolean;
+  isDisabled?: boolean;
   text: string;
   type: "button" | "submit" | "reset" | undefined;
   onClick?: any;
