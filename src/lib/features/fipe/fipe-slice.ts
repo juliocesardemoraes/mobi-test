@@ -20,19 +20,19 @@ const fipeSlice = createSlice({
   name: "fipe",
   initialState,
   reducers: {
-    addBrands: (state, action: PayloadAction<[IVehicleInfo]>) => {
+    addBrands: (state, action: PayloadAction<IVehicleInfo[]>) => {
       return {
         ...state,
         brands: action.payload,
       };
     },
-    addModels: (state, action: PayloadAction<[IVehicleInfo]>) => {
+    addModels: (state, action: PayloadAction<IVehicleInfo[] | []>) => {
       return {
         ...state,
         models: action.payload,
       };
     },
-    addYears: (state, action: PayloadAction<[IVehicleInfo]>) => {
+    addYears: (state, action: PayloadAction<IVehicleInfo[] | []>) => {
       return {
         ...state,
         years: action.payload,
