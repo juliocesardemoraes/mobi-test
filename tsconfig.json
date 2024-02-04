@@ -6,6 +6,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "types": ["@testing-library/jest-dom"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -26,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/Data/Select/Select.tsx"
+    "src/components/molecules/SelectData/SelectData.tsx"
   ],
   "exclude": ["node_modules"]
 }
