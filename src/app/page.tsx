@@ -1,7 +1,7 @@
 "use client";
-import SelectUI from "@/components/UI/Select/Select";
+import SelectUI from "@/components/organisms/SelectUI/SelectUI";
 import { useState } from "react";
-import ButtonUI from "@/components/UI/Button/Button";
+import ButtonUI from "@/components/molecules/Button/Button";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
