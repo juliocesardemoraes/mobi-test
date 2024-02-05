@@ -1,6 +1,6 @@
 <h1 align="center"> MobiFipeChecker </h1> <br>
 
-[![Current Version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://github.com/juliocesardemoraes/mobi-test) [![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://mobi-test-green.vercel.app/)
+[![Versão Atual](https://img.shields.io/badge/vers%C3%A3o-1.0.0-green.svg)](https://github.com/juliocesardemoraes/mobi-test) [![Demonstração ao Vivo](https://img.shields.io/badge/demo-online-green.svg)](https://mobi-test-green.vercel.app/)
 
 <p align="center">
   <a href="https://mobi-test-green.vercel.app/">
@@ -9,113 +9,131 @@
 </p>
 
 <p align="center">
-  Fipe search app. It shows the average price of an specific vehicle. Built with nextjs
+  Aplicativo de pesquisa Fipe. Ele exibe o preço médio de um veículo específico. Desenvolvido com Next.js.
 </p>
 
+## Índice
 
-## Table of Contents
+- [Introdução](#introdução)
+- [Recursos](#recursos)
+- [Checklist Técnico](#checklist-técnico-do-teste)
+- [Tecnologias](#tecnologias)
+- [Deploy](#deploy)
+- [Como executar](#como-executar)
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Checklist](#technical-test-checklist)
-- [Technologies](#technologies)
-- [Deployment](#deployment)
-- [How to run it](#how-to-run-it)
+## Introdução
 
-## Introduction
-Fipe search is your place to go regarding knowledge of how much an average car costs in brazil based on brand/model/year.
+A pesquisa Fipe é o seu local para obter informações sobre quanto custa em média um carro no Brasil com base na marca/modelo/ano.
 
-**Available for any web browser.**
+**Disponível para qualquer navegador da web.**
 
 <p align="center">
   <img src = "http://i.imgur.com/Fy5qgqi.png" width=350>
 </p>
 
-## Features
+## Recursos
 
-A few of the things you can do with MobiFipeChecker:
+Alguns dos recursos do MobiFipeChecker:
 
-* Check average vehicle prices from cars,motorcycles or trucks.
-* Check prices for different models and years of specific brands.
-* Share the link with your friends so they can get the same result without searching.
-* Prices are not hardcoded. So if the api updates the website will work as fine.
-* Error handling for better user experience.
+- Verificar os preços médios de veículos, como carros, motocicletas ou caminhões.
+- Verificar os preços de diferentes modelos e anos de marcas específicas.
+- Compartilhar o link com seus amigos para que eles possam obter o mesmo resultado sem precisar pesquisar.
+- Os preços não estão "hardcoded". Caso a api utilizada seja atualizada o website também será de maneira dinâmica.
+- Tratamento de erros para uma melhor experiência do usuário.
 
 <p align="center">
-  <h3>Common workflow</h3>
+  <h3>Fluxo de funcionamento</h3>
   <img src = "http://i.imgur.com/TtBny8E.png" width=700>
 </p>
 
-## Technical Test Checklist
-- [X] A dica é seguir o layout e entregar um teste onde ela mostre os conhecimentos em Nextjs, Hooks, gerenciamento de estado (pode ser com context, redux, até mobx).
-- [X] Arquitetura de pastas(Atomic design pattern)
-- [X] Usar Typescript
-- [X] Usar código legível
-- [X] Validar o formulário
-- [X] Para obter os dados, consulte esta API. http://deividfortuna.github.io/fipe/v2/
-- [X] Para os componentes (Button e Select/Autocomplete), recomenda-se utilizar o framework Material-UI.
-- [X] Para a estilização, utilizar alguma biblioteca CSS-in-JS, podendo ser o próprio Material-UI ou outra, como Styled-Components. A fonte deve ser a "Roboto".
-- [X] Será avaliada a qualidade do código (semântica e legibilidade). *Criei o código tendo isto em mente*
+## Checklist Técnico do Teste
+**Não estava no desafio porém eu adicionei uma navbar para melhor navegamento da página**
+- [x] Seguiu o layout e entregou um teste demonstrando conhecimento em Next.js, Hooks, e gerenciamento de estado (Context, Redux ou MobX).
+- [x] Utilizou a arquitetura de pastas (padrão Atomic Design).
+- [x] Usou TypeScript.
+- [x] Escreveu código legível.
+- [x] Validou o formulário.
+- [x] Para obter os dados, consultou esta API: http://deividfortuna.github.io/fipe/v2/
+- [x] Para os componentes (Button e Select/Autocomplete), utilizou o framework Material-UI.
+- [x] Para a estilização, utilizou alguma biblioteca CSS-in-JS, podendo ser o próprio Material-UI ou outra, como Styled-Components. A fonte utilizada foi a "Roboto".
+- [x] A qualidade do código (semântica e legibilidade) foi avaliada.
 
-### Requisitos obrigatórios
-- [X] Next.js
-- [X] Redux, MobX ou Context API
-- [X] Deploy na Vercel
+### Requisitos Obrigatórios
+- [x] Next.js.
+- [x] Redux, MobX ou Context API.
+- [x] Implantação na Vercel.
 
 ### Diferenciais
-- [X] Typescript
-- [X] Algum tipo de teste unitário. *Foi utilizado react-testing-library e jest*
-- [X] Algum tipo de teste E2E. *Foi utilizado o cypress*
+- [x] TypeScript.
+- [x] Implementou algum tipo de teste unitário (utilizando react-testing-library e jest).
+- [x] Implementou algum tipo de teste E2E (utilizando Cypress).
 
+## Tecnologias
 
-## Technologies
-> Core
-* Nextjs.
-* Reactjs.
-* Typescript.
-  
-> HTTP Client
-* Axios.
+> Principais
 
-> StateManager
-* Redux.
+- Next.js.
+- React.js.
+- TypeScript.
 
-> Styles
-* MUI. Material UI. https://mui.com/material-ui/
-* Tailwind. https://tailwindcss.com/
-* Vanilla css. 
+> Cliente HTTP
 
-> Tests
-* *CI/CD* implementation with cypress and react testing library/jest.
-* E2E with cypress.
-* Unit testing with React Testing Library/jest.
-* Locally with husky. github pre-push testing logic.
+- Axios.
 
-> Code quality/style
-* Eslint.
-* Prettier.
+> Gerenciador de Estado
 
-## Deployment
+- Redux.
+
+> Estilos
+
+- MUI. Material UI. https://mui.com/material-ui/
+- Tailwind. https://tailwindcss.com/
+- Vanilla CSS.
+
+> Testes
+
+- Implementação CI/CD com Cypress e React Testing Library/jest.
+- Testes E2E com Cypress.
+- Testes unitários com React Testing Library/jest.
+- Execução local com Husky. Lógica de teste pré-push no GitHub.
+
+> Qualidade/Estilo de Código
+
+- Eslint.
+- Prettier.
+
+## Deploy
+
 https://mobi-test-green.vercel.app/
 
-## How to run it?
-1- Install the dependencies
+## Como Executar?
+
+1- Instale as dependências
+
 ```
 npm install
 ```
-2- Run the server
+
+2- Rodar o servidor
+
 ```
 npm run dev
 ```
-3-(Optional) Run the unit tests
+
+3-(Optional) Executar testes unitários
+
 ```
 npm run test
 ```
-4-(Optional) Run the e2e tests
+
+4-(Optional) Executar testes end to end.
+
 ```
 npm run cy
 ```
-5-(Optional) Run the e2e tests only in the terminal
+
+5-(Optional) Executar testes end to end somente no terminal
+
 ```
 npm run cyt
 ```
