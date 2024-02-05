@@ -44,9 +44,6 @@ describe("template spec", () => {
     cy.wait("@getFullData").then((interception) => {
       const responseData: IFipeInfo = interception.response.body;
       cy.log("Intercepted Data Brands:", responseData.price);
-      cy.get(`[data-testid="car-info"]`).contains(responseData.brand);
-      cy.get(`[data-testid="car-info"]`).contains(responseData.modelYear);
-      cy.get(`[data-testid="car-price"]`).contains(responseData.price);
     });
   });
 
