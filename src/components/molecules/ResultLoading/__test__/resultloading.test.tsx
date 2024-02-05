@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import ResultLoading from "../Resultloading";
 
 describe("ResultLoading", () => {
-  it("renders Skeleton components with the specified properties", () => {
+  it("Renders Skeleton components with the specified properties", () => {
     render(<ResultLoading />);
 
     const skeleton1 = screen.getByTestId("skeleton-1");

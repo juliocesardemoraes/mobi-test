@@ -1,11 +1,17 @@
 "use client";
 import { Alert } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
 import { IAxiosResponse } from "@/types/fipe";
 
-export default function AlertComponent() {
+export default function AlertComponent({
+  message = "Mensagem padrão",
+  severity = "error",
+}: {
+  message?: string;
+  severity?: "success" | "error" | "warning" | "info";
+}) {
   const [showComponent, setShowComponent] = useState(false);
 
   const alertMessage: IAxiosResponse | null = useSelector(
@@ -16,12 +22,12 @@ export default function AlertComponent() {
     <>
       {alertMessage != null || showComponent ? (
         <Alert
-          severity="error"
+          severity={severity}
           onClose={() => {
             setShowComponent(false);
           }}
         >
-          {alertMessage?.response?.data?.error}
+          {alertMessage?.response?.data?.error ?? message}
         </Alert>
       ) : null}
     </>
