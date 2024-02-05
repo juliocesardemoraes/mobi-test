@@ -1,21 +1,46 @@
-import { IFipeInfo } from "./../types/fipe";
-import axios from "axios";
+import { IAxiosResponse, IFipeInfo } from "./../types/fipe";
+import axios, { AxiosError } from "axios";
 import { apiUrl } from "./config";
 import { VehicleTypes } from "@/types/fipe";
 import { store } from "@/lib/store";
-import { addBrands, addModels, addYears } from "@/lib/features/fipe/fipe-slice";
+import {
+  addBrands,
+  addModels,
+  addYears,
+  setError,
+  setLoading,
+} from "@/lib/features/fipe/fipe-slice";
 
 /**
  * Returns vehicle brands
  * @param {VehicleTypes} vehicleType the vehicle type
  */
 export async function getVehicleBrands(vehicleType: VehicleTypes) {
+  store.dispatch(
+    setLoading({
+      brands: true,
+      models: false,
+      years: false,
+    })
+  );
+
   axios
     .get(`${apiUrl}/${vehicleType}/brands`)
     .then((res) => {
       store.dispatch(addBrands(res.data));
     })
-    .catch((error) => {});
+    .catch((error: IAxiosResponse) => {
+      store.dispatch(setError(error));
+    })
+    .finally(() => {
+      store.dispatch(
+        setLoading({
+          brands: false,
+          models: false,
+          years: false,
+        })
+      );
+    });
 }
 
 /**
@@ -27,12 +52,31 @@ export async function getVehicleModels(
   vehicleType: VehicleTypes,
   brandId: string
 ) {
+  store.dispatch(
+    setLoading({
+      brands: false,
+      models: true,
+      years: false,
+    })
+  );
+
   axios
     .get(`${apiUrl}/${vehicleType}/brands/${brandId}/models`)
     .then((res) => {
       store.dispatch(addModels(res.data));
     })
-    .catch((error) => {});
+    .catch((error: IAxiosResponse) => {
+      store.dispatch(setError(error));
+    })
+    .finally(() => {
+      store.dispatch(
+        setLoading({
+          brands: false,
+          models: false,
+          years: false,
+        })
+      );
+    });
 }
 
 /**
@@ -48,21 +92,40 @@ export async function clearVehicleModels() {
  * @param {string} brandId the vehicle brand
  * @param {string} modelId the model code identifier
  */
-export async function getYearsByModel(
+export async function getVehicleYears(
   vehicleType: string,
   brandId: string,
   modelId: string
 ) {
+  store.dispatch(
+    setLoading({
+      brands: false,
+      models: false,
+      years: true,
+    })
+  );
+
   axios
     .get(`${apiUrl}/${vehicleType}/brands/${brandId}/models/${modelId}/years`)
     .then((res) => {
       store.dispatch(addYears(res.data));
     })
-    .catch((error) => {});
+    .catch((error) => {
+      store.dispatch(setError(error));
+    })
+    .finally(() => {
+      store.dispatch(
+        setLoading({
+          brands: false,
+          models: false,
+          years: false,
+        })
+      );
+    });
 }
 
 /**
- * Remove models from redux
+ * Remove years from redux
  */
 export async function clearVehicleYears() {
   store.dispatch(addYears([]));
@@ -81,7 +144,7 @@ export async function getFipeEvaluation(
   brandId: string,
   modelId: string,
   yearId: string
-): Promise<IFipeInfo> {
+): Promise<any> {
   const response = axios
     .get(
       `${apiUrl}/${vehicleType}/brands/${brandId}/models/${modelId}/years/${yearId}`
@@ -90,7 +153,7 @@ export async function getFipeEvaluation(
       return res.data;
     })
     .catch((error) => {
-      return error;
+      store.dispatch(setError(error));
     });
   return response;
 }
