@@ -9,9 +9,9 @@ export default function Home() {
   const router = useRouter();
 
   const vehicleMapper = [
-    { name: "carros", code: "cars" },
-    { name: "motos", code: "motorcycles" },
-    { name: "caminhões", code: "trucks" },
+    { name: "carro", code: "cars" },
+    { name: "moto", code: "motorcycles" },
+    { name: "caminhão", code: "trucks" },
   ];
 
   const redirectToResult = () => {
@@ -22,7 +22,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center gap-2 p-4 mt-4">
       <h1>Selecione um tipo de veiculo para pesquisar a tabela fipe</h1>
       <SelectUI
-        labelName="Veículo"
+        labelName="Tipo de veículo"
         content={vehicleMapper}
         setSelected={setSelected}
         selected={selected}
