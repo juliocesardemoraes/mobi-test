@@ -1,4 +1,4 @@
-import { IVehicleInfo, RequestsMapper } from "@/types/fipe";
+import { IVehicleInfo } from "@/types/fipe";
 import {
   FormControl,
   InputLabel,
@@ -23,10 +23,13 @@ export default function SelectUI({
     <FormControl className="w-10/12 mt-4 ">
       {content?.length > 0 ? (
         <>
-          <InputLabel id={`${labelName}-label`}>{labelName}</InputLabel>
+          <InputLabel id={`${labelName}-label`} data-testid="label-jest-test">
+            {labelName}
+          </InputLabel>
           <Select
             labelId={`${labelName}-label`}
             id={`${labelName}-select`}
+            data-testid={`select-jest-test`}
             value={selected}
             label={labelName}
             onChange={(event: any) => {
@@ -35,7 +38,11 @@ export default function SelectUI({
           >
             {content.map((contentItem: IVehicleInfo) => {
               return (
-                <MenuItem key={contentItem.code} value={contentItem.code}>
+                <MenuItem
+                  value={contentItem.code}
+                  data-testid={`label-name-${contentItem.code}`}
+                  key={contentItem.code}
+                >
                   {contentItem.name}
                 </MenuItem>
               );
@@ -43,7 +50,12 @@ export default function SelectUI({
           </Select>
         </>
       ) : (
-        <Skeleton className={"rounded"} variant="rectangular" height={60} />
+        <Skeleton
+          className={"rounded"}
+          variant="rectangular"
+          data-testid="skeleton-test"
+          height={60}
+        />
       )}
     </FormControl>
   );
