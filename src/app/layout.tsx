@@ -11,7 +11,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Mobi Job Test",
+  title: "MobiFipeChecker",
   description: "Technical job interview",
 };
 
@@ -22,6 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.png" />
+        <meta charSet="utf-8" />
+      </head>
       <body className={roboto.className}>
         <Navbar></Navbar>
         <ReduxProvider>

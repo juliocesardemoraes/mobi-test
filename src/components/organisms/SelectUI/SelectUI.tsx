@@ -29,6 +29,7 @@ export default function SelectUI({
             {labelName}
           </InputLabel>
           <Select
+            className="gap-4"
             labelId={`${labelName}-label`}
             id={`${labelName}-select`}
             data-testid={`select-jest-test`}

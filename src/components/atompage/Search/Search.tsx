@@ -57,6 +57,8 @@ export default function SearchPage() {
     if (selectedBrand == "" && selectedModel == "" && selectedYear == "")
       return;
 
+    if (selectedBrand == "") return;
+
     setSelectedModel("");
     clearVehicleModels();
 
@@ -76,6 +78,8 @@ export default function SearchPage() {
   useEffect(() => {
     if (selectedBrand == "" && selectedModel == "" && selectedYear == "")
       return;
+
+    if (selectedModel == "") return;
 
     setSelectedYear("");
     clearVehicleYears();
