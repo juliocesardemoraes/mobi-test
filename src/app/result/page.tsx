@@ -1,6 +1,6 @@
 "use client";
-import ResultPage from "@/components/pages/Result/Result";
 import ResultLoading from "@/components/molecules/ResultLoading/Resultloading";
+import ResultPage from "@/components/pages/Result/Result";
 import React, { Suspense } from "react";
 
 export default function Result() {
