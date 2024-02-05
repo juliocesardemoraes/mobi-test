@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import ReduxProvider from "./StoreProvider";
-import Navbar from "@/components/molecules/Navbar/Navbar";
+import Navbar from "../components/molecules/Navbar/Navbar";
+import AlertComponent from "@/components/molecules/Alert/Alert";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -23,7 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <Navbar></Navbar>
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <AlertComponent></AlertComponent>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   );
