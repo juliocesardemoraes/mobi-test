@@ -17,6 +17,12 @@ export const RequestsMapper = {
   years: "Anos",
 };
 
+export const VehicleMapper = {
+  cars: "cars",
+  motorcycles: "motorcycles",
+  trucks: "trucks",
+};
+
 export interface IFipeInfo {
   price: string;
   brand: string;
@@ -27,4 +33,36 @@ export interface IFipeInfo {
   referenceMonth: string;
   vehicleType: number;
   fuelAcronym: string;
+}
+
+export interface IAxiosResponse {
+  message: string;
+  name: string;
+  stack: string;
+  config: {
+    transitional: {
+      silentJSONParsing: boolean;
+      forcedJSONParsing: boolean;
+      clarifyTimeoutError: boolean;
+    };
+    adapter: string[];
+    transformRequest: (null | ((data: any, headers?: any) => any))[];
+    transformResponse: (null | ((data: any) => any))[];
+    timeout: number;
+    xsrfCookieName: string;
+    xsrfHeaderName: string;
+    maxContentLength: number;
+    maxBodyLength: number;
+    env: Record<string, any>;
+    headers: Record<string, string>;
+    method: string;
+    url: string;
+  };
+  response: {
+    data: {
+      error?: string;
+    };
+  };
+  code: string;
+  status: number;
 }
