@@ -6,13 +6,15 @@ import {
   clearVehicleYears,
   getVehicleBrands,
   getVehicleModels,
-  getYearsByModel,
+  getVehicleYears,
 } from "@/actions/cars";
 import SelectData from "@/components/molecules/SelectData/SelectData";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import ButtonUI from "@/components/molecules/Button/Button";
-import { VehicleTypes } from "@/types/fipe";
+import { VehicleMapper, VehicleTypes } from "@/types/fipe";
+import { useDispatch } from "react-redux";
+import { clearData } from "@/lib/features/fipe/fipe-slice";
 
 export default function SearchPage() {
   const [selectedBrand, setSelectedBrand] = useState<string>("");
@@ -21,18 +23,13 @@ export default function SearchPage() {
   const [typeOfVehicle, setTypeOfVehicle] = useState<VehicleTypes | "">("");
 
   const searchParams = useSearchParams();
+  const dispatch = useDispatch();
   const router = useRouter();
 
   useEffect(() => {
-    const vehicleType = searchParams.get("vehicleType");
-    if (!vehicleType) return;
+    const vehicleType: any = searchParams.get("vehicleType");
 
-    if (
-      vehicleType == "cars" ||
-      vehicleType == "motorcycles" ||
-      vehicleType == "trucks"
-    )
-      setTypeOfVehicle(vehicleType);
+    setTypeOfVehicle(vehicleType);
   }, [searchParams]);
 
   useEffect(() => {
@@ -40,6 +37,9 @@ export default function SearchPage() {
 
     const getBrandsAsync = async () => {
       await getVehicleBrands(typeOfVehicle);
+      const vehicleType: any = searchParams.get("vehicleType");
+      if (vehicleType == null) router.push("/");
+      if (!VehicleMapper.hasOwnProperty(vehicleType)) router.push("/");
     };
 
     getBrandsAsync();
@@ -78,7 +78,7 @@ export default function SearchPage() {
         typeOfVehicle == "motorcycles" ||
         typeOfVehicle == "trucks"
       )
-        await getYearsByModel(typeOfVehicle, selectedBrand, selectedModel);
+        await getVehicleYears(typeOfVehicle, selectedBrand, selectedModel);
     };
 
     getYearsAsync();
@@ -93,6 +93,7 @@ export default function SearchPage() {
 
   const redirectToResult = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    dispatch(clearData([]));
     router.push(
       `/result?typeOfVehicle=${typeOfVehicle}&selectedBrand=${selectedBrand}&selectedModel=${selectedModel}&selectedYear=${selectedYear}`,
       { scroll: false }
