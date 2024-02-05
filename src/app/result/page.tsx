@@ -1,6 +1,6 @@
 "use client";
 import ResultLoading from "@/components/molecules/ResultLoading/Resultloading";
-import ResultPage from "../../components/pages/Result/Result";
+import ResultPage from "../../components/atompage/Result/Result";
 
 import React, { Suspense } from "react";
 

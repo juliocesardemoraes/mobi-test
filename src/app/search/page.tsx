@@ -1,5 +1,5 @@
 "use client";
-import SearchPage from "../../components/pages/Search/Search";
+import SearchPage from "../../components/atompage/Search/Search";
 import React, { Suspense, useEffect, useState } from "react";
 
 export default function Search() {
