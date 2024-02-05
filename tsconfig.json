@@ -1,17 +1,11 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext", "es5"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "types": [
-      "@testing-library/jest-dom",
-      "jest"
-    ],
+    "types": ["@testing-library/jest-dom", "jest", "cypress", "node"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -24,9 +18,7 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "strict": false,
     "noEmit": true

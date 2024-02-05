@@ -27,6 +27,13 @@ export default function SearchPage() {
   const router = useRouter();
 
   useEffect(() => {
+    const clearVehicleModelsAsync = async () => {
+      await clearVehicleModels();
+    };
+    clearVehicleModelsAsync();
+  }, []);
+
+  useEffect(() => {
     const vehicleType: any = searchParams.get("vehicleType");
 
     setTypeOfVehicle(vehicleType);
