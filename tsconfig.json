@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/molecules/SelectData/SelectData.tsx"
+    "src/components/organisms/SelectData/SelectData.tsx"
   ],
   "exclude": [
     "node_modules",

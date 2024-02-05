@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux"; // Assuming you have a Redux store provider
 import SelectData from "../SelectData";
 import { IVehicleInfo, RequestTypes, RequestsMapper } from "@/types/fipe";
@@ -47,7 +47,5 @@ describe("SelectData", () => {
     const selectedValue = mockContent[0].code;
 
     renderComponent(dataAccessor, selectedValue);
-
-    const getElementByTestId = screen.getByTestId(`select-jest-test`);
   });
 });

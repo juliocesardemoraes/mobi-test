@@ -36,13 +36,6 @@ describe("SelectData", () => {
         selected={mockContent[0].code}
       />
     );
-
-    for(let i=0; i<mockContent.length;i++){
-      
-    }
-
-    //expect(labelName).toBeInTheDocument();
-    //expect(labelName).toHaveTextContent("Marcas");
   });
   it("It renders with the correct label and using redux store", () => {});
   it("It renders with the correct label and using redux store", () => {});

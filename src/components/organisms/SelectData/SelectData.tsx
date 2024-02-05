@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/lib/store";
 import { RequestTypes, RequestsMapper } from "@/types/fipe";
 import React, { Dispatch } from "react";
-import SelectUI from "../../organisms/SelectUI/SelectUI";
+import SelectUI from "../SelectUI/SelectUI";
 
 export default function SelectData({
   dataAcessor,
