@@ -69,29 +69,29 @@ A few of the things you can do with MobiFipeChecker:
 
 
 ## Technologies
-### Core
+> Core
 * Nextjs.
 * Reactjs.
 * Typescript.
   
-## HTTP Client
+> HTTP Client
 * Axios.
 
-### StateManager
+> StateManager
 * Redux.
 
-### Styles
+> Styles
 * MUI. Material UI. https://mui.com/material-ui/
 * Tailwind. https://tailwindcss.com/
 * Vanilla css. 
 
-### Tests
+> Tests
 * *CI/CD* implementation with cypress and react testing library/jest.
 * E2E with cypress.
 * Unit testing with React Testing Library/jest.
 * Locally with husky. github pre-push testing logic.
 
-### Code quality/style
+> Code quality/style
 * Eslint.
 * Prettier.
 
