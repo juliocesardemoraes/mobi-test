@@ -13,6 +13,9 @@ export default function SelectData({
   selected: string;
 }) {
   const content = useAppSelector((state) => state.fipeReducer[dataAcessor]);
+  const loading: boolean = useAppSelector(
+    (state) => state.fipeReducer.loading[dataAcessor]
+  );
 
   return (
     <SelectUI
@@ -20,6 +23,7 @@ export default function SelectData({
       content={content}
       setSelected={setSelected}
       selected={selected}
+      loading={loading}
     ></SelectUI>
   );
 }
