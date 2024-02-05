@@ -29,6 +29,7 @@ export default function Home() {
       ></SelectUI>
       <ButtonUI
         isDisabled={selected == ""}
+        data-testid="home-enter"
         text={"Ir para aba de pesquisa"}
         type={"button"}
         onClick={() => {

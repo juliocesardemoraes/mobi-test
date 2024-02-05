@@ -21,6 +21,7 @@ export default function ButtonUI({
       style={{ textTransform: "none" }}
       type={type}
       onClick={onClick}
+      data-testid="buttonEnter"
     >
       {text}
     </Button>
