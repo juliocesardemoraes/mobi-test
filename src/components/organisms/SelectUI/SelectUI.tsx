@@ -13,15 +13,17 @@ export default function SelectUI({
   content,
   setSelected,
   selected,
+  loading = false,
 }: {
   labelName: string;
   content: IVehicleInfo[] | [];
   setSelected: Dispatch<string>;
   selected: string;
+  loading?: boolean;
 }) {
   return (
     <FormControl className="w-10/12 mt-4 ">
-      {content?.length > 0 ? (
+      {loading === false ? (
         <>
           <InputLabel id={`${labelName}-label`} data-testid="label-jest-test">
             {labelName}
