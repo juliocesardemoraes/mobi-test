@@ -1,3 +1,4 @@
+import { IFipeInfo } from "./../../src/types/fipe";
 describe("template spec", () => {
   beforeEach(() => {
     cy.intercept("GET", "https://parallelum.com.br/fipe/api/v2/**/brands").as(
@@ -13,29 +14,39 @@ describe("template spec", () => {
       "GET",
       "https://parallelum.com.br/fipe/api/v2/**/brands/**/models/**/years"
     ).as("getYears");
+
+    cy.intercept(
+      "GET",
+      "https://parallelum.com.br/fipe/api/v2/**/brands/**/models/**/years/**"
+    ).as("getFullData");
   });
 
   it("Test main workflow", () => {
     cy.visit("/search?vehicleType=cars");
     cy.wait("@getBrands").then((interception) => {
       const responseData = interception.response.body;
-      cy.log("Intercepted Data:", responseData[0]);
       cy.get('[data-testid="select-jest-test"]:first').click();
       cy.get('[data-testid="label-name-1"]').click();
     });
 
     cy.wait("@getModels").then((interception) => {
-      const responseData = interception.response.body;
-      cy.log("Intercepted Data Brands:", responseData[0]);
       cy.get('[data-testid="select-jest-test"]:eq(1)').click();
       cy.get('[data-testid="label-name-1"]').click();
     });
 
     cy.wait("@getYears").then((interception) => {
       const responseData = interception.response.body;
-      cy.log("Intercepted Data Years:", responseData[0].code);
       cy.get('[data-testid="select-jest-test"]:eq(2)').click();
       cy.get(`[data-testid="label-name-${responseData[0].code}"]`).click();
+      cy.get(`[data-testid="buttonEnter"]`).click();
+    });
+
+    cy.wait("@getFullData").then((interception) => {
+      const responseData: IFipeInfo = interception.response.body;
+      cy.log("Intercepted Data Brands:", responseData.price);
+      cy.get(`[data-testid="car-info"]`).contains(responseData.brand);
+      cy.get(`[data-testid="car-info"]`).contains(responseData.modelYear);
+      cy.get(`[data-testid="car-price"]`).contains(responseData.price);
     });
   });
 

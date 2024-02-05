@@ -47,10 +47,12 @@ export default function ResultPage() {
         <div
           className={`w-100 flex flex-col ${styles.container} items-center gap-4 p-4`}
         >
-          <h1>
+          <h1 data-testid="car-info">
             Tabela Fipe: Preço {carInfo?.brand} {carInfo?.modelYear}
           </h1>
-          <div className={`${styles.container__price}`}>{carInfo.price}</div>
+          <div className={`${styles.container__price}`} data-testid="car-price">
+            {carInfo.price}
+          </div>
           <span>Este é o preço de compra do veiculo</span>
         </div>
       ) : (

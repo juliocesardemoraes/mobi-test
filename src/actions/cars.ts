@@ -1,4 +1,4 @@
-import { IAxiosResponse, IFipeInfo } from "./../types/fipe";
+import { IAxiosResponse, IFipeInfo } from "../types/fipe";
 import axios, { AxiosError } from "axios";
 import { apiUrl } from "./config";
 import { VehicleTypes } from "@/types/fipe";
