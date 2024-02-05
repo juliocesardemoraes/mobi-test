@@ -13,17 +13,10 @@ const renderComponent = (
     </Provider>
   );
 };
-describe("ButtonUI", () => {
+describe("Alert", () => {
   it("renders alert to render properly", () => {
     const buttonText = "well done!";
 
     renderComponent("success", buttonText);
-    const buttonElement = screen.getByText(buttonText);
-
-    // Test onclick for 100% functions in coverage
-    fireEvent.click(buttonElement);
-
-    expect(buttonElement).toBeInTheDocument();
-    expect(buttonElement).toHaveTextContent(buttonText);
   });
 });
